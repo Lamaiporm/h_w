@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>java</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+  body{
+    background-color: rgb(181, 236, 238);
+  }
+  .form {
+            width: 400px;
+            padding: 30px;
+            border: 1px solid black;
+            border-radius: 2%;
+        }
+
+        .input-form {
+            margin: 1%;
+            width: 100%;
+            height: 20px;
+        }
+
+        .selectform {
+            width: 100%;
+            height: 30px;
+
+        }
+
+        .textarea {
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>RMU</b> Lamaiporn Sirsomphan</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="index.html" class="w3-bar-item w3-button">index</a>
+      <a href="java.html" class="w3-bar-item w3-button">java</a>
+      <a href="api.html" class="w3-bar-item w3-button">api</a>
+    </div>
+  </div>
+</div>
+    <hr>
+</head>
+</head>
+<body>
+    <h1>Java</h1>
+   
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+          <h2>หาความยาวเส่นรอบวง</h2>
+          <input id="input" type="text" placeholder="รัศมี" fdprocessedid="9gpd2m">
+          <h4>ความยาวเส้นรอบวงกลม:<span id="result"></span></h4>
+          <button class="btn btn-outline-primary" onclick="calculateAndDisplayCircumference()" fdprocessedid="j1fn4">คำนวน</button>
+
+        <div class="box">
+            
+          <hr>
+          <h2>สุ่มตัวเลขลูกเต๋า</h2>
+          <button onclick="rollAndDisplayDice()">หยิบลูกเต๋า</button>
+          <p id="diceResult"></p>
+        
+        
+        
+        <div class="box">
+            <h2>หาความยาวเส่นรอบวง</h2>
+            <input id="input" type="text" placeholder="รัศมี" fdprocessedid="9gpd2m">
+            <h4>ความยาวเส้นรอบวงกลม:<span id="result"></span></h4>
+            <button class="btn btn-outline-primary" onclick="calculateAndDisplayCircumference()" fdprocessedid="j1fn4">คำนวน</button>
+
+        </div>
+
+        <div class="box">
+          <h2>A-Z</h2>
+          <h4><span id="show3">Z</span></h4>
+      </div>
+        
+        
+        <div class="box">
+            <h2>หาค่าอุภูมิ</h2>
+            <h4><span id="show1"></span></h4>
+            <button class="btn btn-outline-primary" onclick="fahrenheitToCelsius()" fdprocessedid="j4tsw9">กดปุ่ม</button>
+        </div>
+        
+        <div class="box">
+            <h2>หาค่าวันต่อนาที</h2>
+            <input type="text" id="daysInput" fdprocessedid="wigujs">
+            <h4><span id="show2"></span></h4>
+                <button class="btn btn-outline-primary" onclick="dayToSeconds()" fdprocessedid="2e2nm">คำนวน</button>
+            </div>
+          
+            
+            
+            
+            <script>
+                function printAlphabets() {
+                    for (let charCode = 65; charCode <= 90; charCode++) {
+                        const alphabet = String.fromCharCode(charCode);
+                        setTimeout(() => {
+                            console.log(alphabet);
+                        }, (charCode - 65) * 1000);
+                    }
+                }
+                
+                function printAlphabets() {
+                    let result = '';
+                    for (let charCode = 65; charCode <= 90; charCode++) {
+                        const alphabet = String.fromCharCode(charCode);
+                        setTimeout(() => {
+                            result = alphabet;
+                            document.getElementById('show3').innerText = result;
+                        }, (charCode - 65) * 1000);
+                    }
+                }
+                
+                printAlphabets();
+                
+                function dayToSeconds() {
+                    let inputDays = document.getElementById("daysInput").value;
+                    if (!isNaN(inputDays)) {
+                        let seconds = inputDays * 86400;
+                        document.getElementById(
+                            "show2"
+                            ).innerText = `จำนวนวัน ${inputDays} วัน: ${seconds} นาที`;
+                        } else {
+                            alert("Please enter a valid number of days.");
+                        }
+                    }
+                    
+                    // หาความยาวเส่นรอบวง
+                    function calculateCircleCircumference(radius) {
+                        return 2 * Math.PI * radius;
+                }
+                
+                function calculateAndDisplayCircumference() {
+                    let inputElement = document.getElementById("input");
+                    let resultElement = document.getElementById("result");
+                    
+                    let radius = parseFloat(inputElement.value);
+                    
+                    if (!isNaN(radius)) {
+                        let circumference = calculateCircleCircumference(radius);
+                        resultElement.textContent = circumference.toFixed(2);
+                    } else {
+                        resultElement.textContent = "กรุณากรอกค่าที่ถูกต้อง";
+                    }
+                }
+                
+                function fahrenheitToCelsius() {
+                    let inputFahrenheit = prompt("Enter temperature in Fahrenheit:");
+                    let celsiusValue = (parseFloat(inputFahrenheit) - 32) * (5 / 9);
+                    document.getElementById(
+                        "show1"
+                        ).innerText = `Fahrenheit: ${inputFahrenheit}°F, Celsius: ${celsiusValue.toFixed(
+                            2
+                            )}°C`;
+                        }
+                        
+                        // หาความยาวเส่นทแยงมุมของสี่เหลี่ยงผืนผ้า
+                        function calculateHypotenuse(base, height) {
+                            let result = Math.sqrt(base ** 2 + height ** 2);
+                            document.getElementById("show").innerHTML = result.toFixed(3);
+                        }
+                        </script>
+
+<div>
+    <div class="container">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+const xValues = ["มหาสารคาม", "อ.บรบือ", "อ.นาเชือก", "อ.แกดำ", ];
+const yValues = [65, 60, 55, 50, 45];
+const barColors = ["red", "green","blue","orange",];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "ระดับความชอบสุนัข"
+    }
+  }
+});
+
+
+</script>
+
+</body>
+      
+</body>
+</html>
